@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <!-- Filter -->
+    <filter>
+        <filter-name>TempFilter</filter-name>
+        <filter-class>com.example.temp.filter.TempFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>TempFilter</filter-name>
+        <url-pattern>/convert</url-pattern>
+    </filter-mapping>
+
+    <!-- Servlet -->
+    <servlet>
+        <servlet-name>TemperatureServlet</servlet-name>
+        <servlet-class>com.example.temp.servlet.TemperatureServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TemperatureServlet</servlet-name>
+        <url-pattern>/convert</url-pattern>
+    </servlet-mapping>
+
+    <!-- Listener -->
+    <listener>
+        <listener-class>com.example.temp.listener.RequestListener</listener-class>
+    </listener>
+
+    <!-- Welcome -->
+    <welcome-file-list>
+        <welcome-file>temp.jsp</welcome-file>
+    </welcome-file-list>
+
+</web-app>
